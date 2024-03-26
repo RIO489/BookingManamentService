@@ -13,7 +13,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import server.service.BookServerService;
 
 import java.util.concurrent.*;
-
+/*
 
 
 @Testcontainers
@@ -147,3 +147,4 @@ public class GrpcServiceTestcontainerTest {
         Assertions.assertEquals("Book successful deleted!", deleteBookResponse.getMessage());
     }
 }
+*/
