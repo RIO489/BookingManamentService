@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package com.book;
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+
+message Book {
+  string id = 1; // UUIDs are strings in protobuf
+  string title = 2;
+  string author = 3;
+  string isbn = 4;
+  int32 quantity = 5;
+}
+
+message BookId {
+  string id = 1;
+}
+
+message AuthorName {
+  string name = 1;
+}
+
+message DeleteBookRequest {
+  string id = 1;
+}
+
+message DeleteBookResponse {
+  string message = 1; // Could also be a message to confirm deletion if needed
+  Book book = 2;
+}
+
+message ListBooksRequest {
+  // Fields can be added here if you want to include filtering or pagination
+}
+
+service BookService {
+  //unary - synchronous
+  //client will send one request and server will respond with one respond
+  rpc createBook (Book) returns (BookId);
+  rpc getBook (BookId) returns (Book);
+  rpc updateBook (Book) returns (Book);
+  rpc deleteBook (BookId) returns (DeleteBookResponse);
+  //server-streaming - asynchronous
+  //client will send one request and server will respond with stream of messages
+  rpc getAllBooksByAuthor (AuthorName) returns (stream Book) ;
+  rpc getAllBooks (ListBooksRequest) returns (stream Book);
+}
