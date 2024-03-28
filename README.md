@@ -38,10 +38,10 @@ To interact with the application, use a gRPC client with the provided `.proto` f
 ## Running the tests
 
 To run integration tests with testcontainers:
-gradle integrationTest
+gradlew integrationTest
 
 To run unit tests:
-gradle test
+gradlew test
 
 
 ## Deployment
