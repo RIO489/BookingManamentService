@@ -1,4 +1,4 @@
-package client.configuration;
+package client.service.configuration;
 
 import com.book.BookServiceGrpc;
 import io.grpc.Channel;

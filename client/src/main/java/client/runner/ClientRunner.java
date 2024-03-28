@@ -26,15 +26,15 @@ public class ClientRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        getBook("123e4567-e89b-12d3-a456-426614174000");//First book in db
+       // getBook("123e4567-e89b-12d3-a456-426614174000");//First book in db
 
+        createBook();
         //Now trying to retrieve every book
         System.out.println("\n Trying to retrieve all books \n");
 
         getAllBooks();
         //Attempt to create a book in db
         System.out.println("\n Attempt to create a book \n");
-        createBook();
     }
 
     public void getBook(String bookId) throws ClientException {
@@ -78,9 +78,9 @@ public class ClientRunner implements ApplicationRunner {
     }
 
     public void createBook() throws ClientException {
-        BookDTO dto = new BookDTO(UUID.randomUUID().toString(), "Outer Wilds", "Genius", "123", 5);
+        BookDTO dto = new BookDTO(UUID.randomUUID().toString(), "Arsen", "Genius", "123", 5);
 
-        Map<Descriptors.FieldDescriptor, Object> book = null;
+        Map<Descriptors.FieldDescriptor, Object> book ;
 
         try {
             book = bookClientService.createBook(dto);
