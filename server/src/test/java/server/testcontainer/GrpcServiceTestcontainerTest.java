@@ -19,6 +19,7 @@ import java.util.concurrent.*;
 @Testcontainers
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Tag("integrationTest")
 public class GrpcServiceTestcontainerTest {
 
     @Container

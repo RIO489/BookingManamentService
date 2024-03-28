@@ -40,6 +40,14 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.0'
 
 }
+task integrationTest(type: Test) {
+	useJUnitPlatform {
+		includeTags 'integrationTest'
+	}
+}
+
 test {
-	useJUnitPlatform()
+	useJUnitPlatform {
+		excludeTags 'integrationTest'
+	}
 }
